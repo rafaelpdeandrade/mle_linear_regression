@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   linear-regression-mle-api:
     build:
@@ -12,5 +10,5 @@ services:
       - ./artifacts:/app/artifacts
       - ./logs:/app/logs
     environment:
-      - PROJECT_NAME = "Linear Regression MLE"
+      - PROJECT_NAME="Linear Regression MLE"
     restart: "always"

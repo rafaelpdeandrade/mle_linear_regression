@@ -18,15 +18,14 @@ def train_and_evaluate():
     logger.info("Iniciando ciclo de treinamento ...")
 
     # 1. Carga de dados
-    generator = ComplexDatasetGenerator()
-    df = generator.generate()
+    df = pd.read_csv(settings.DATA_DIR / "df_sintetico.csv")
 
     # Features / Target
     X = df.drop(columns=["preco"])
     y = df["preco"]
 
     # 2. Split treino/test
-    X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.2, random_state=settings.RANDOM_STATE)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=settings.RANDOM_STATE)
 
     # 3. Construção e ajuste do Pipeline
     pipeline = PipelineLinearRegressionBuilder.build_pipeline()
