@@ -30,7 +30,7 @@ class PipelineLinearRegressionBuilder():
         # Pipeline para atributos categóricos (Imputação de categoria mais frequente + One Hot)
         cat_transformer = Pipeline(steps=[
             ("imputer", SimpleImputer(strategy="most_frequent")),
-            ("onehot", OneHotEncoder(handle_unknown="ignore", spase_output=False))
+            ("onehot", OneHotEncoder(handle_unknown="ignore", sparse_output=False))
         ])
 
         # Combinador de colunas
@@ -46,4 +46,3 @@ class PipelineLinearRegressionBuilder():
         ])
 
         return full_pipeline
-

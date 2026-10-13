@@ -73,4 +73,10 @@ class ComplexDatasetGenerator:
         df.loc[mask_null_padrao, "padrao_acabamento"] = np.nan
 
         logger.info("Dataset sintético gerado com sucesso.")
-        return df
+
+        # Exportando o Dataset
+        return df.to_csv(settings.DATA_DIR / "df_sintetico.csv", index=False, encoding="UTF-8")
+
+if __name__ == "__main__":
+    generator = ComplexDatasetGenerator()
+    generator.generate()
